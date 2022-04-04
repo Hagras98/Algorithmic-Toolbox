@@ -1,0 +1,14 @@
+# Uses python3
+import sys
+
+def get_change(m):
+    n_coins = m // 10
+    m =% 10
+    n_coins += m // 5
+    m -= 5
+    n_coins += m
+    return n_coins
+
+if __name__ == '__main__':
+    m = int(input())
+    print(get_change(m))
