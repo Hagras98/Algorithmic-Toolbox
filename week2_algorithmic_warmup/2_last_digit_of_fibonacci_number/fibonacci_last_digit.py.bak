@@ -12,7 +12,6 @@ def get_fibonacci_last_digit(n):
         fib = (minus1 + minus2) % 10
         minus2 = minus1
         minus1 = fib
-        
     return fib
 
 if __name__ == '__main__':

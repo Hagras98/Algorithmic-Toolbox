@@ -1,5 +1,5 @@
 # Uses python3
-from sys import stdin
+import sys
 
 def calc_fib(n):
     if (n <= 1):
@@ -13,7 +13,7 @@ def calc_fib(n):
         
     return fib
 
-def fibonacci_sum_squares(n):
+def fibonacci_sum_naive(n):
     if n <= 1:
         return n
     fibs = [0, 1]
@@ -24,8 +24,13 @@ def fibonacci_sum_squares(n):
             break
         i += 1
     period = len(fibs) - 2
-    return (fibs[n % period] * fibs[(n+1) % period]) % 10
+    _sum = 0
+    for num in fibs[:n%period +1]:        
+        _sum += num
+
+    return _sum % 10
 
 if __name__ == '__main__':
+   
     n = int(input())
-    print(fibonacci_sum_squares(n))
+    print(fibonacci_sum_naive(n))

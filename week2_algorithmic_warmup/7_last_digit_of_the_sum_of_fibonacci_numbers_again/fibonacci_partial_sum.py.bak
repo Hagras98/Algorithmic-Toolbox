@@ -36,7 +36,7 @@ def fibonacci_partial_sum(from_, to):
     if lower > upper:
         upper+=10
     
-    return (upper-lower) % 10
+    return upper-lower
 
 if __name__ == '__main__':
     from_, to = map(int, input().split())

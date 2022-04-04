@@ -1,5 +1,5 @@
 # Uses python3
-from sys import stdin
+import sys
 
 def calc_fib(n):
     if (n <= 1):
@@ -13,19 +13,19 @@ def calc_fib(n):
         
     return fib
 
-def fibonacci_sum_squares(n):
+def get_fibonacci_huge(n, m):
     if n <= 1:
         return n
     fibs = [0, 1]
     i = 2
     while(True):
-        fibs.append(calc_fib(i) % 10)
+        fibs.append(calc_fib(i) % m)
         if fibs[i] == 1 and fibs[i-1] == 0:
             break
         i += 1
     period = len(fibs) - 2
-    return (fibs[n % period] * fibs[(n+1) % period]) % 10
+    return fibs[n % period]
 
 if __name__ == '__main__':
-    n = int(input())
-    print(fibonacci_sum_squares(n))
+    n, m = map(int, input().split())
+    print(get_fibonacci_huge(n, m))

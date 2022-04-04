@@ -1,21 +1,36 @@
 # Uses python3
 import sys
 
-def fibonacci_sum_naive(n):
+def calc_fib(n):
+    if (n <= 1):
+        return n
+    minus1 = 1
+    minus2 = 0
+    for i in range(n-1):
+        fib = minus1 + minus2
+        minus2 = minus1
+        minus1 = fib
+        
+    return fib
+
+def fibonacci_sum(n):
     if n <= 1:
         return n
-
-    previous = 0
-    current  = 1
-    _sum      = 1
-
-    for _ in range(n - 1):
-        previous, current = current, previous + current
-        _sum += current
+    fibs = [0, 1]
+    i = 2
+    while(True):
+        fibs.append(calc_fib(i) % 10)
+        if fibs[i] == 1 and fibs[i-1] == 0:
+            break
+        i += 1
+    period = len(fibs) - 2
+    _sum = 0
+    for num in fibs[:n%period +1]:        
+        _sum += num
 
     return _sum % 10
 
 if __name__ == '__main__':
-    input = sys.stdin.read()
-    n = int(input)
-    print(fibonacci_sum_naive(n))
+   
+    n = int(input())
+    print(fibonacci_sum(n))

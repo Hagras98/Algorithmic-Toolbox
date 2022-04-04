@@ -9,11 +9,9 @@ def gcd(a, b):
 
 def lcm(a, b):
     Lcm = 1
-    
     while True:
         Gcd = gcd(a//Lcm, b//Lcm)
         Lcm *= Gcd
-        
         if Gcd == 1:
             break
             
