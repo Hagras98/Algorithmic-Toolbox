@@ -15,6 +15,7 @@ import sys
 
 def optimal_summands(n):
     summands = []
+    #write your code here
     i = 1
     while True:
         if n - i >= i + 1:
