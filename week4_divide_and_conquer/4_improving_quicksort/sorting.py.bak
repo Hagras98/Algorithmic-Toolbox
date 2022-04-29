@@ -24,7 +24,8 @@ def partition3(a, l, r):
         elif a[i] == pivot:
             j_high += 1
             a[i], a[j_high] = a[j_high], a[i]                        
-    a[l], a[j_low] = a[j_low], a[l]    
+    a[l], a[j_low] = a[j_low], a[l]
+    
     return [j_low, j_high]
     
     
