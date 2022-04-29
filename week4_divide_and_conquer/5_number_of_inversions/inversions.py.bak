@@ -14,7 +14,7 @@ def get_number_of_inversions(arr, temp_arr, left, right):
     number_of_inversions = 0
     if right - left <= 1:
         return number_of_inversions
-    ave = (left + right) // 2
+    ave = ((left + right) // 2) 
     number_of_inversions += get_number_of_inversions(arr, temp_arr, left, ave)
     number_of_inversions += get_number_of_inversions(arr, temp_arr, ave, right)
     number_of_inversions += merge_and_count(left, ave, right, arr, temp_arr)    
